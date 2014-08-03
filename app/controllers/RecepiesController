@@ -1,0 +1,28 @@
+<?php
+
+class RecepiesController extends BaseController{
+	
+	public $restful = true;
+
+	public function getIndex(){
+		$fridge = Input::get('fridge');
+		$recepies = Input::get('recepies');
+
+		/*$rules = array(
+			"fridge" => "required",
+			"recepies" => "required"
+			);
+
+		$validation = Validator::make($inputs, $rules);
+*/
+
+		$view = View::make('recepies.index')
+			->with('frge', $fridge)
+			->with('rcps', $recepies);
+
+		
+		return $view;
+	}
+}
+
+?>
